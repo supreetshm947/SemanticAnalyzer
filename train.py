@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 from tqdm import tqdm
 
-EPOCHS = 10
+EPOCHS = 1
 
 
 def validate_model(model, val_loader):
@@ -47,13 +47,29 @@ def train_model(model, criterion, optimizer, train_loader, val_loader, num_epoch
         print(f'Epoch [{epoch + 1}/{num_epochs}], Loss: {avg_train_loss:.4f}')
         validate_model(model, val_loader)
 
+def save_model(model, path, vocab_size, embedding_dim, hidden_dim, output_dim):
+    model_data = {
+        'vocab_size': vocab_size,
+        'embedding_dim': embedding_dim,
+        'hidden_dim': hidden_dim,
+        'output_dim': output_dim,
+        'state_dict': model.state_dict()
+    }
+    torch.save(model_data, path)
 
 if __name__ == '__main__':
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     data_path = "data/IMDB Dataset.csv"
-
+    model_path = "models/analyser.pth"
     vocab, train_loader, val_loader = get_loaders(data_path)
-    model = SentimentAnalyser(len(vocab), embedding_dim=100, hidden_dim=128, output_dim=1).to(device)
+
+    vocab_size = len(vocab)
+    embedding_dim = 100
+    hidden_dim = 128
+    output_dim = 1
+
+    # Initialize model with architecture parameters
+    model = SentimentAnalyser(vocab_size, embedding_dim, hidden_dim, output_dim).to(device)
 
     # initializing params
     for param in model.parameters():
@@ -64,3 +80,5 @@ if __name__ == '__main__':
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
     train_model(model, criterion, optimizer, train_loader, val_loader, EPOCHS)
+
+    save_model(model, model_path, vocab_size, embedding_dim, hidden_dim, output_dim)

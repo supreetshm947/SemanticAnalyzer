@@ -8,3 +8,4 @@ kaggle
 pandas
 scikit-learn
 tqdm
+modelbit
