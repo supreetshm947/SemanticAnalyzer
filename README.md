@@ -1,5 +1,5 @@
 ## 🌟 Semantic Analyzer 
-- 🤖 Implementations of fully connected neural networks for sentiment analysis.
+- 🤖 Implementations of a Deep Learning model in Pytorch for sentiment analysis.
 - 📈 Evaluation metrics including accuracy and loss.
 
 ## 📊 Data
