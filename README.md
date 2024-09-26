@@ -15,7 +15,7 @@ make setup_env
 ```
 
 ## 🚀 Usage
-###Data Preparation 
+### Data Preparation 
     ```
       make download_data
     ```
@@ -28,7 +28,7 @@ To train the model, run the following command:
       python train.py
     ```
 
-##🏗️ Model Architecture
+## 🏗️ Model Architecture
 
 The SentimentAnalyser class implements the sentiment analysis model. It consists of:
 - An embedding layer 
