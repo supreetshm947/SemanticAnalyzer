@@ -21,6 +21,7 @@ To Download the Data:
     ```
       make download_data
     ```
+
 Make sure your Kaggle Credentials are setup
 
 ### Running the Model
