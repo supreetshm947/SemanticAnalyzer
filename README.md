@@ -15,11 +15,13 @@ make setup_env
 ```
 
 ## 🚀 Usage
+
 ### Data Preparation 
+To Download the Data:
     ```
-      make download_data
+        make download_data
     ```
-    Make sure your Kaggle Credentials are setup
+Make sure your Kaggle Credentials are setup
 
 ### Running the Model
 
