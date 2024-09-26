@@ -19,7 +19,7 @@ make setup_env
 ### Data Preparation 
 To Download the Data:
     ```
-        make download_data
+      python train.py
     ```
 Make sure your Kaggle Credentials are setup
 
