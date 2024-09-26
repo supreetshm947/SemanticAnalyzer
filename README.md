@@ -50,7 +50,7 @@ Model
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):
-        x = self.embedding(x)  # Map token indices to embedding vectors
+        x = self.embedding(x)
         x = x.mean(dim=1)
         x = self.fc1(x)
         x = self.relu(x)
